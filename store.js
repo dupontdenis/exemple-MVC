@@ -43,13 +43,17 @@ export default class Store {
      * Find items with properties matching those on query.
      *
      * @param {ItemQuery} query Query to match
-     * @param {function(ItemList)} callback Called when the query is done
+     *
      *
      */
-    findAll(callback) {
-        const todos = this.getLocalStorage();
-
-        callback(todos);
+    findAll() {
+        return new Promise( (resolve, reject) => {
+           
+            const todos = this.getLocalStorage();
+            resolve(todos);
+           
+        })
+        
     }
 
 

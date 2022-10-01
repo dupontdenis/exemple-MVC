@@ -91,13 +91,14 @@ export default class Controller {
      *
      *
      */
-    _filter() {
+
+   
+    async _filter() {
 
         //this.store.findAll(this.view.showItems.bind(this.view));
 
-        this.store.findAll((taches) => {
-            this.view.showItems(taches);
-        });
+        const taches = await this.store.findAll();
+        this.view.showItems(taches);
 
         //this.store.findAll(this.view.showItems); ne marche pas car this dans view.showtime = undefined
     }
